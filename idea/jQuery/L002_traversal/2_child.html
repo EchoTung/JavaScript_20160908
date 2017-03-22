@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>child</title>
+    <script src="jquery-3.1.0.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#btn1').click(function(){
+				$('div').children().css({
+					'color':'red',
+					'border':'2px solid red'
+				})
+			})
+			$('#btn2').click(function(){
+				$('div').children('p.p2').css({
+					'color':'blue',
+					'border':'2px solid green'
+				})
+			})
+			
+			$('#btn3').click(function(){
+				$('div').find('span').css({
+					'color':'orange',
+					'border':'2px solid blue'
+				})
+			})
+
+            $('#btn4').click(function(){
+				$('div').find('*').css({
+					'color':'pink',
+					'border':'2px solid pink'
+				})
+			})            
+        });
+    </script>
+    <style type="text/css">
+        .descendants *
+        {
+            display: block;
+            border: 2px solid lightgrey;
+            color: lightgrey;
+            padding: 5px;
+            margin: 15px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">寻找直接子（children）</button>
+    <button id="btn2">寻找直接子（children("p.p2")）</button>
+    <button id="btn3">寻找直接子（find("span")）</button>
+    <button id="btn4">寻找所有后代(find("*"))</button>
+    <div class="descendants" style="width:500px;">div (当前元素)
+        <p class="p1">p (子)
+            <span>span (孙)</span>
+        </p>
+        <p class="p2">p (子)
+            <span>span (孙)</span>
+        </p>
+    </div>
+</body>
+</html>

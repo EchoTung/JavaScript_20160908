@@ -1,0 +1,77 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    width:1200px;
+    background:url("img/background.jpg");
+    background-size:1200px auto;
+    background-repeat: no-repeat;
+    background-position:center top;
+    font-family:"Lantinghei SC","Microsoft Yahei",宋体,Arial,Helvetica,sans-serif;
+    font-size:12px;
+}
+#header{
+    height:31px;
+    min-width:990px;
+    padding:9px 10px 0 0;
+    position:relative;
+}
+#hd-nav{
+    float:right;
+}
+ul{
+    list-style:none;
+}
+#hd-nav li{
+    border-right:1px solid rgba(255,255,255,.2);
+    float:left;
+    height:14px;
+    padding:0 10px;
+}
+a{
+    text-decoration: none;
+    cursor:auto;
+}
+#hd-nav .skin a{
+    padding-left:22px;
+    position:relative;
+}
+#hd-nav a{
+    color:#fff;
+    height:14px;
+    line-height:14px;
+}
+#hd-nav li .ico{
+    background:url("http://p7.qhimg.com/d/inn/774669ac/t01bc32feb0bbb5c4e0.png") no-repeat;
+    left:0;
+    position:absolute;
+}
+#hd-nav .skin .ico{
+    background-position:0 -270px;
+    height:15px;
+    top:-1px;
+    width:16px;
+}
+a:hover{
+    text-decoration: underline;
+}
+.login{
+    padding-left:41px;
+    position:relative;
+}
+.avatar{
+    border-radius:18px;
+    box-shadow:0 1px 5px rgba(87,87,87,.5);
+    height:20px;
+    left:10px;
+    position:absolute;
+    top:-2px;
+    width:20px;
+}
+.a1{
+    margin-left:30px;
+}
+.a2{
+    margin-left:5px;
+}

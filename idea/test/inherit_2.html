@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>inherit测试优先级</title>
+    <style>
+        body{
+            background:black;
+        }
+        /*li{
+            color:red  !important;
+        }
+        .white{
+            color:white;
+        }
+
+        h1#id1{
+            color:red;
+        }
+        em{
+            color:white;
+        }*/
+        h1{
+            color:red !important;
+        }
+    </style>
+</head>
+<body>
+    <!--<div>
+        <ul>
+            <li class="white">举例列表1</li>
+            <li>举例列表2</li>
+            <li>举例列表3</li>
+            <li>举例列表4</li>
+        </ul>
+    </div>
+    <div>
+        <h1 id="id1">深入探讨<em>CSS的继承性</em></h1>
+    </div>-->
+    <h1 style="color: white">important优先级最高！</h1>
+</body>
+</html>

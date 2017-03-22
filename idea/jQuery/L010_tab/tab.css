@@ -1,0 +1,53 @@
+*{
+	margin:0;
+	padding:0;
+	font-size:12px;
+	list-style:none;
+}
+.tab{
+	width:298px;
+	height:98px;
+	border:1px solid #eee;
+	margin:10px;
+	overflow:hidden;
+}
+.title{
+    height: 27px;
+    background:#f7f7f7;
+    position:relative;	
+}
+.title ul{
+	width:301px;
+	position:absolute;
+	left:-1px;
+}
+.title li{
+	float:left;
+    width:58px;
+    height:26px;
+    line-height:26px;
+    padding:0 1px; /* 则 58+1*2=60，60*5=300 */
+    text-align:center;
+    border-bottom:1px solid #eee;/* 26+1=27 */
+    overflow:hidden;
+}
+.tab li a:link, .tab li a:visited{
+    text-decoration: none;
+    color:#000;
+}
+.tab li a:hover{
+    color:#f90;
+    font-weight:700;
+}
+.title .selected{
+	background-color:#fff;
+	border-bottom-color:#fff;
+}
+.content div{
+	background-color:#fff;
+	padding:10px;
+	display:none;
+}
+.content .selected{
+	display:block;
+}

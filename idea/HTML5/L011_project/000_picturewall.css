@@ -1,0 +1,99 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+body{
+    background-color: #eeeeee;
+}
+
+.container{
+    width:960px;
+    height:450px;
+    margin:60px auto;
+}
+
+.container img{
+    padding:10px;
+    background-color: white;
+    border:1px solid #ddd;
+    box-shadow:2px 2px 3px rgba(50,50,50,.4);
+    transition:transform 1s ease-in;
+    -webkit-transition:transform 1s ease-in;
+    position:relative;
+    z-index:1;
+}
+
+.container img:hover{
+    box-shadow:15px 15px 20px rgba(50,50,50,.4);
+    transform:rotate(0deg) scale(2.00);
+    -webkit-transform:rotate(0deg) scale(2.00);
+    z-index:2
+}
+
+.pic{
+    width:150px;
+}
+
+.pic1{
+    left:10px;
+    top:-10px;
+    transform:rotate(-5deg);
+    -webkit-transform:rotate(-5deg);
+}
+
+.pic2{
+    left:0;
+    top:0;
+    transform:rotate(-20deg);
+    -webkit-transform:rotate(-20deg);
+}
+
+.pic3{
+    bottom:0;
+    right:0;
+    transform:rotate(5deg);
+    -webkit-transform:rotate(5deg);
+}
+
+.pic4{
+    bottom:0px;
+    left:0px;
+    transform:rotate(-10deg);
+    -webkit-transform:rotate(-10deg);
+}
+
+.pic5{
+    bottom: -50px;
+    right:10px;
+    transform:rotate(10deg);
+    -webkit-transform:rotate(10deg);
+}
+
+.pic6{
+    right:-60px;
+    top:0;
+    transform:rotate(-10deg);
+    -webkit-transform:rotate(-10deg);
+}
+
+.pic7{
+    right:-50px;
+    top:-10px;
+    transform:rotate(10deg);
+    -webkit-transform:rotate(10deg);
+}
+
+.pic8{
+    right:-30px;
+    top: 30px;
+    transform:rotate(-10deg);
+    -webkit-transform:rotate(-10deg);
+}
+
+.pic9{
+    right:-20px;
+    top:0px;
+    transform:rotate(15deg);
+    -webkit-transform:rotate(15deg);
+}

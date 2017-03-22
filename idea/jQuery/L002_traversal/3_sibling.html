@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sibling</title>
+    <script src="jquery-3.1.0.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#btn1").click(function(){
+                $('h2').siblings().css({
+					'color':'red',
+					'border':'2px solid red'
+				})
+            });
+            $("#btn2").click(function(){
+                $('h2').siblings('p').css({
+					'color':'blue',
+					'border':'2px solid blue'
+				})
+            });
+            $("#btn3").click(function(){
+                $('h2').next().css({
+					'color':'yellow',
+					'border':'2px solid yellow'
+				})
+            });
+            $("#btn4").click(function(){
+                $('h2').nextAll().css({
+					'color':'pink',
+					'border':'2px solid pink'
+				})
+            });
+            $("#btn5").click(function(){
+                $('h2').nextUntil('p').css({
+					'color':'lightblue',
+					'border':'2px solid lightblue'
+				})
+            });
+            $("#btn6").click(function(){
+                $('h2').prev().css({
+					'color':'coral',
+					'border':'2px solid coral'
+				})
+            });
+            $("#btn7").click(function(){
+                $('h2').prevAll().css({
+					'color':'violet',
+					'border':'2px solid violet'
+				})
+            });
+            $("#btn8").click(function(){
+                $('h2').prevUntil('p').css({
+					'color':'gold',
+					'border':'2px solid gold'
+				})
+            })
+        });
+    </script>
+    <style>
+        .siblings *
+        {
+            border:2px solid lightgrey;
+            padding:5px;
+            margin:15px;
+        }
+    </style>
+</head>
+<body class="siblings">
+    <button id="btn1">寻找同胞siblings()</button>
+    <button id="btn2">寻找同胞siblings("p")</button>
+    <button id="btn3">寻找同胞next()</button>
+    <button id="btn4">寻找同胞nextAll()</button>
+    <button id="btn5">寻找同胞nextUntil("p")</button>
+    <button id="btn6">寻找同胞prev()</button>
+    <button id="btn7">寻找同胞prevAll()</button>
+    <button id="btn8">寻找同胞prevUntil("p")</button>
+    <div>div(父)
+        <p>p</p>
+        <h1>h1</h1>
+        <h2>h2</h2>
+        <h3>h3</h3>
+        <h4>h4</h4>
+        <p>p</p>
+    </div>
+</body>
+</html>

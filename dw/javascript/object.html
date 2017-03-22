@@ -1,0 +1,74 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>js变量值复制和函数参数传递</title>
+</head>
+
+<body>
+	<script>
+		/*var person = new Object();
+		person.name = "echo";
+		console.log(person.name); // echo
+		
+		var name = "Nic";
+		name.age = 27;
+		console.log(name.age); // undefined
+		
+		var age1 = 27;
+		var age2 = age1;
+		age1 = 20;
+		age2 = 22;
+		console.log(age1,age2);
+		
+		var obj1 = new Object();
+		obj1.name = "echo";
+		obj1.age = 27;
+		var obj2 = obj1;
+		obj2.age = 22;
+		console.log(obj1.name, obj1.age, obj2.name, obj2.age);
+		
+		function setName(obj){
+			obj.name = "emma";
+		}
+		setName(obj1);
+		console.log(obj1.name);
+		
+		function setAge(age){
+			age = 25;
+		}
+		setAge(age1);
+		console.log(age1);*/
+		
+		
+/*		var val = 12;
+		console.log(typeof val); //number
+
+		var num = new Number();
+		num = 12;
+		console.log(typeof num); //number
+		
+		var obj = new Object();
+		obj = 12;
+		console.log(typeof obj); //number*/
+		
+		var value = "25";
+		var number = Number(value);
+		console.log(typeof number); //number
+		
+		var obj = new Number(value);
+		console.log(typeof obj); //object
+		console.log(obj instanceof Number); //true
+		
+		var s1 = "some text";
+		var s2 = s1.substring(2);
+		console.log(s1); //some text
+		console.log(s2); //me text
+		
+		var num = 12;
+		console.log(typeof num);//number
+		console.log(num instanceof Number);//false
+	</script>
+</body>
+</html>

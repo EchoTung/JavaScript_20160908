@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>size</title>
+    <script src="jquery-3.1.0.js"></script>
+    <script>
+        $(document).ready(function() {
+			$('#btn1').click(function(){
+				var obj = $('div');
+				var txt = "";
+				txt += 'width: ' + obj.width() + '<br />';
+				txt += 'height: ' + obj.height() + '<br />';
+				txt += 'innerWidth: ' + obj.innerWidth() + '<br />';
+				txt += 'innerHeight: ' + obj.innerHeight() + '<br />';
+				txt += 'outerWidth: ' + obj.outerWidth() + '<br />';
+				txt += 'outerHeight: ' + obj.outerHeight() + '<br />';
+				txt += 'outerWidth(true): ' + obj.outerWidth(true) + '<br />';
+				txt += 'outerHeight(true): ' + obj.outerHeight(true);
+				obj.html(txt);
+			});
+            
+			$('#btn2').click(function(){
+				$('div').width('300px').height('500px');
+			})
+        });
+    </script>
+    <style type="text/css">
+        div {
+			box-sizing:border-box;
+            height:200px;
+            width: 300px;
+            padding:10px;
+            margin:3px;
+            border:1px solid blue;
+            background-color:lightblue;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">显示尺寸</button>
+    <button id="btn2">设置尺寸</button>
+    <div></div>
+</body>
+</html>

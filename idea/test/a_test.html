@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css 面试常见题目</title>
+    <style type="text/css">
+        a.outer:link{
+            color:red;
+        }
+        a.outer:visited{
+            color:orange;
+        }
+        a.outer:hover{
+            color:yellowgreen;
+        }
+        a.outer:active{
+            color:deepskyblue;
+        }
+
+        a.inner:link{
+            color:#1abc9c;
+        }
+        a.inner:visited{
+            color:#CC6699;
+        }
+        a.inner:hover{
+            color:#0000ff;
+        }
+        a.inner:active{
+            color:#d58512;
+        }
+        #test{
+            width:300px;
+            height:300px;
+
+            background-color:blue;      /*firefox*/
+            background-color:red\9;      /*all ie*/
+            background-color:yellow\0;    /*ie8*/
+            +background-color:pink;        /*ie7*/
+            _background-color:orange;       /*ie6*/
+        }
+        :root #test { background-color:purple\9; }  /*ie9*/
+        /*@media all and (min-width:0px){ #test {background-color:black\0;} }  !*opera*!
+        @media screen and (-webkit-min-device-pixel-ratio:0){ #test {background-color:gray;} }       !*chrome and safari*!
+*/
+        .div1{
+            width:300px;
+            height:300px;
+            border:1px solid red;
+        }
+        .div2{
+            width:200px;
+            height:200px;
+            border:1px solid red;
+        }
+        .div3{
+            width:100px;
+            height:100px;
+            border:1px solid red;
+        }
+        :root .div3{
+            background-color:yellow;
+        }
+        .ani{
+            width:480px;
+            height:320px;
+            margin:50px auto;
+            overflow: hidden;
+            box-shadow:0 0 5px rgba(0,0,0,1);
+            background-size: cover;
+            background-position: center;
+            -webkit-animation-name: loop;
+            -webkit-animation-duration: 20s;
+            -webkit-animation-iteration-count: infinite;
+        }
+        @-webkit-keyframes loop {
+            0% {
+                background-color:red;
+            }
+            25% {
+                background-color:yellow;
+            }
+            50% {
+                background-color:greenyellow;
+            }
+            75% {
+                background-color:green;
+            }
+            100% {
+                background-color:red;
+            }
+        }
+    </style>
+</head>
+<body>
+    <p><a  name="para">1.测试 a 属性</a></p>
+    <a class="outer" href="https://www.baidu.com">2.跳转至“百度”</a><br />
+    <a class="inner" href="#para">3.跳转至首行文字</a> <br />
+    <div id="test"></div>
+
+    <div class="div1">
+        <div class="div2">
+            <div class="div3">
+                :root 根选择器
+            </div>
+        </div>
+    </div>
+
+    <div class="ani"></div>
+</body>
+</html>

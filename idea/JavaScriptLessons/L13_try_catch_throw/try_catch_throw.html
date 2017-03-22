@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>try_catch_throw</title>
+</head>
+<body>
+    <form>
+        <input id="txt" type="text" />
+        <input id="btn" type="button" onclick="test()" value="按钮"/>
+    </form>
+
+    <script>
+        /*
+        function test(){
+            try{
+                alert(str);
+            } catch(err) {
+                alert(err);
+            }
+        }
+        test();
+        */
+        function test(){
+            var t = document.getElementById("txt").value;
+            try{
+                if(t == ""){
+                    alert("请输入信息");
+                }
+            }catch(err){
+                alert(err);
+            }
+        }
+    </script>
+</body>
+</html>

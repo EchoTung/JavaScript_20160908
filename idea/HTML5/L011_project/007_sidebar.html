@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>side bar</title>
+</head>
+<body>
+    <script>
+        var getId = function(id){
+            return document.getElementById(id);
+        };
+        var addEvent = function(obj, event, fun){
+            if(obj.addEventListener){
+                obj.addEventListener(event, fun, false);
+            } else if(obj.attachEvent()){
+                obj.attachEvent("on"+event, fun);
+            }
+        }
+
+    </script>
+</body>
+</html>

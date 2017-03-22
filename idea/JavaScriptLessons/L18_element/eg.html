@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>关于class的多种函数封装</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        li{
+            height: 20px;
+        }
+        .div1{
+            background-color:#d58512;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul class="list">
+        <li class="in abc ab "></li>
+        <li class="in ac b "></li>
+        <li class="in a "></li>
+        <li class="in acb "></li>
+        <li class="in ba "></li>
+        <li class="in abc"></li>
+        <li class="abc"></li>
+    </ul>
+</div>
+<script>
+    //数组的indexOf方法封装
+    function indexOf(arr,value,start){
+        //如果不设置start,则默认start为0
+        if(arguments.length == 2){
+            start = 0;
+        }
+        //如果数组中存在indexOf方法，则用原生的indexOf方法
+        if(arr.indexOf){
+            return arr.indexOf(value,start);
+        }
+        for( var i = 0; i < arr.length; i++){
+            if(arr[i] === value){
+                return i;
+            }
+        }
+        return -1;
+    }
+    //数组去重方法封装
+    function noRepeat(arr){ //添加新元素到数组末尾，并返回数组
+        var result = [];
+        for( var i = 0; i < arr.length; i++){
+            if(indexOf(result,arr[i]) == -1){
+                result.push(arr[i]);
+            }
+        }
+        return result;
+    }
+    //inArray方法封装
+    function inArray(arr,value){ //检索元素是否存在数组内
+        for(var i = 0; i < arr.length; i++){
+            if(arr[i] === value){
+                return true;
+            }
+        }
+        return false;
+    }
+    //去除首尾空格函数封装
+    function trim(arr){
+        var result = [];
+        result = arr.replace(/^\s+|\s+$/g,'');
+        return result;
+    }
+    //getElementsByClassName函数封装
+    function getElementsByClassName(parentObj,classStr){
+        var result = [];
+        var objs = parentObj.getElementsByTagName('*');
+    //    console.log(Object.prototype.toString.call(objs)); //[object HTMLCollection]
+    //    console.log(objs);//[ul.list, li.in.abc.ab, li.in.ac.b, li.in.a, li.in.acb, li.in.ba, li.in.abc, li.abc]
+
+        //如果classStr用空格分隔，则class为“后代”关系，必须同时满足才有效
+        var targetArr1 = noRepeat(trim(classStr).split(/\s+/));    //-------------------- 以 空格 分割
+        //如果classStr用逗号分隔，则class为“分组”关系，只要有一个满足就有效
+        var targetArr2 = noRepeat(trim(classStr).split(/\s*,\s*/));//-------------------- 以  ,  分割
+    //    console.log(Object.prototype.toString.call(targetArr1)); //[object Array]
+    //    console.log(targetArr1); //["in","abc"]
+        console.log(Object.prototype.toString.call(targetArr2)); //[object Array]
+        console.log(targetArr2); //["in abc"]
+
+        if(classStr.indexOf(',') == -1 ){ //--------------------非逗号，“与”关系
+        //    console.log("targetArr1");
+            //用空格分隔或者只有一个class
+            label: for(var i = 0; i < objs.length; i++){
+                var arr = noRepeat(trim(objs[i].className).split(/\s+/));
+        //        console.log(arr);//["list"] ["in","abc","ab"] ["in","ac","b"] ["in","a"] ["in","acb"] ["in","ba"] ["in","abc"] ["abc"]
+
+                for( var j = 0; j < targetArr1.length; j++){
+                    if(!inArray(arr,targetArr1[j])){
+                        continue label; //只要一个类名targetArr1不匹配，则直接检索下一个HTML元素arr
+                    }
+                }
+                result.push(objs[i]);//包含指定的所有类名targetArr1，这个arr元素才有效
+        //        console.log(arr);    //  ["in", "abc", "ab"]               ["in", "abc"]
+        //        console.log(objs[i]);//<li class="in abc ab "></li>   <li class="in abc"></li>
+            }
+        //    console.log(result); //[li.in.abc.ab, li.in.abc]
+            return result;
+        }else{ //--------------------类名含逗号，“或”关系，是分组选择器
+        //    console.log("targetArr2");
+            //用逗号分隔
+            label: for(var i = 0; i < objs.length; i++){
+                var arr = noRepeat(trim(objs[i].className).split(/\s+/));
+                for( var j = 0; j < targetArr2.length; j++){
+                    if(inArray(arr,targetArr2[j])){
+                        result.push(objs[i]); //只要一个类名targetArr2匹配，则此arr元素生效
+                        continue label; //不需要检索其它指定类名是否匹配，直接直接检索下一个HTML元素arr
+                    }
+                }
+            }
+            return result;
+        }
+    }
+    /*    var el = document.getElementById("box");
+     var cl = getElementsByClassName(el, " in abc ");
+     console.log(Object.prototype.toString.call(el)); //[object HTMLDivElement]
+     console.log(Object.prototype.toString.call(cl)); //[Object Array]
+     console.log(cl);//[li.in.abc.ab, li.in.abc]*/
+
+    //addclass函数封装
+    function addClass(obj,classStr){
+        var array = noRepeat( trim(obj.className).split(/\s+/) );//obj类名字符串，以空格分割成为数组array
+/*        console.log(array);
+        console.log(array.length);*/
+        if(!inArray(array,classStr)){ //检索类名数组中是否含有元素classStr
+            array.push(classStr); //没有的话就添加到数组中
+        }
+        obj.className = array.join(' ');
+/*        console.log(array);
+        console.log(array.length);
+        console.log(obj.className);*/
+        return obj;
+    }
+    var el = document.getElementById("box");
+    addClass(el,"div1");
+    addClass(el,"div2");
+    addClass(el,"div3");
+    removeClass(el,"div1");
+    setInterval( function(){ toggleClass(el,"div1"); }, 1000 );
+
+    //removeclass函数封装
+    function removeClass(obj,classStr){
+        var array = noRepeat(trim(obj.className).split(/\s+/));
+    //    console.log(array); // ["div1","div2","div3"]
+        var index = indexOf(array,classStr);
+        if(index != -1){
+            array.splice(index,1);
+            obj.className = array.join(' ');
+        }
+        return obj;
+    }
+
+    //toggleClass函数封装
+    function toggleClass(obj,classStr){
+        var array = noRepeat(trim(obj.className).split(/\s+/));
+        if(inArray(array,classStr)){
+            removeClass(obj,classStr);
+        }else{
+            addClass(obj,classStr);
+        }
+    }
+    //var clName = document.getElementsByTagName("li")[0]; //[object HTMLLIElement] : <li class="in abc ab "></li>
+    //var clName = document.getElementsByTagName("li")[0].className;//[object String] : in abc ab
+/*    var str1 = "ab,bf";
+    var arr1 = str1.split(/\s*,\s*!/);
+    console.log(arr1); // ["ab","bf"]
+    var str2 = "ab;bf";
+    var arr2 = str2.split(/\s*,\s*!/);
+    console.log(arr2); // ["ab;bf"]*/
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>figcaption</title>
+</head>
+<body>
+    <!--figure和figcaption-->
+    <figure> <!--figure组内只能一个figcaption-->
+        <img src="img/高圆圆1.jpg" alt="高圆圆1"/>
+        <img src="img/高圆圆2.jpg" alt="高圆圆2" />
+        <img src="img/高圆圆3.jpg" alt="高圆圆3" />
+        <figcaption>高圆圆</figcaption>
+    </figure>
+
+    <!--details和summary-->
+    <script>
+        function detail_onclick(detail) {
+            var p = document.getElementById("p");
+            if(detail.open) {
+                p.style.visibility = "hidden";
+            } else {
+                p.style.visibility = "visible";
+            }
+        }
+    </script>
+
+    <p id="p" style="visibility: hidden">这部电影我竟然看了两遍</p>
+    <details id="detail" onclick="detail_onclick(this)">
+        <summary>速度与激情7</summary>
+    </details>
+
+    <details>啊哈，元素details，看看它的效果
+        <p>details元素内嵌p元素</p>
+    </details>
+
+    <!--mark-->
+    <p>这里<mark>测试</mark>mark元素</p>
+</body>
+</html>

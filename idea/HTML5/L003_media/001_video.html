@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>video</title>
+</head>
+<body>
+    <button onclick="clickPlay()">播放/暂停</button>
+    <video id="v" src="src/movie.ogg" style="width:600px;height:400px;">
+        您的浏览器不支持
+    </video> <!-- controls="controls"-->
+    <script>
+        function clickPlay() {
+            var v = document.getElementById("v");
+            if(v.paused) {
+                v.play();
+            } else {
+                v.pause();
+            }
+        }
+    </script>
+</body>
+</html>

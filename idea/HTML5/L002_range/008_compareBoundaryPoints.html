@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>compareBoundaryPoints</title>
+</head>
+<body>
+    <script>
+        function textPlace() {
+            var b = document.getElementById("b");
+            var rangeObj = document.createRange();
+            rangeObj.selectNodeContents(b.firstChild);//
+            var selection = document.getSelection();
+            if(selection.rangeCount > 0) {
+                var range = selection.getRangeAt(0);
+                if(range.compareBoundaryPoints(Range.START_TO_END, rangeObj) <= 0) {
+                    alert("选取的文字在粗体前面");
+                } else if(range.compareBoundaryPoints(Range.END_TO_START,rangeObj) >= 0) {
+                    alert("选取的文字在粗体后面");
+                }
+            }
+        }
+    </script>
+    这是一段文字，我也不<b id="b">知道</b>写什么。
+    <br />
+    <button onclick="textPlace()">位置比较</button>
+</body>
+</html>

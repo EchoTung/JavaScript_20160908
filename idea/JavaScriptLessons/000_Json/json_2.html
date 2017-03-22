@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>json</title>
+</head>
+<body>
+    <h2>通过 Json 字符串来创建对象</h2>
+    <p><span id="fname"></span> <span id="lname"></span></p>
+    <script>
+        var employees = [
+            {"firstname":"Bill","lastname":"Gates"},
+            {"firstname":"Steve","lastname":"Jobs"}
+        ];
+        document.getElementById("fname").innerHTML = employees[1].firstname;
+        document.getElementById("lname").innerHTML = employees[1].lastname;
+    </script>
+</body>
+</html>

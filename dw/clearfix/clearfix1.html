@@ -1,0 +1,44 @@
+<!DOCTYPE HTML> 
+<html lang="en-US"> 
+<head> 
+<meta charset="UTF-8"/> 
+<title>如何在html中使用clearfix和clear</title> 
+<style type="text/css"> 
+
+.fl{float:left;} 
+.demo{background:#ccc;} 
+.item1{background:#f90;height:100px;width:100px;} 
+.item2{background:#fc0;height:200px;width:100px;} 
+.clear{clear:both;}
+.clearfix:after{
+	content:".";
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden;
+}
+.clearfix{zoom:1;}
+.newdiv{
+	width:200px;
+	height:100px;
+	background-color:red;
+}
+</style> 
+</head> 
+<body> 
+	<h2>用 clear 清除浮动</h2> 
+	<div class="demo"> 
+		<div class="fl item1"></div> 
+		<div class="fl item2"></div> 
+		<div class="clear"></div>
+	</div>  
+	<div class="newdiv"></div>
+
+    <h2>用 clearfix 清除浮动</h2> 
+    <div class="clearfix demo"> 
+        <div class="fl item1"></div> 
+        <div class="fl item2"></div>
+    </div>
+    <div class="newdiv"></div>
+</body> 
+</html> 

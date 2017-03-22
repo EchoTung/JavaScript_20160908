@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>content通常与before和after一起应用</title>
+    <style type="text/css">
+        li{
+            list-style:none;
+        }
+        .name:before{
+            content:"学生：";
+        }
+        .work:before{
+            content:"职业：";
+        }
+        ::selection{
+            color:red;
+        }
+        .div1{
+            width:200px;
+            height:200px;
+            background-color:pink;
+            float:left;
+        }
+        .div2{
+            width:200px;
+            height:200px;
+            background-color:greenyellow;
+            float:left;
+        }
+        .clearfloat{
+            *zoom:1;
+        }
+        .clearfloat:after{
+            content:"这里应该是可以任何内容";
+            /*display:none;使用这个并不能清除浮动*/
+            display:block;
+            height:0;
+            visibility:hidden;
+            clear:both;
+        }
+        .div3{
+            width:200px;
+            height:200px;
+            background-color:green;
+        }
+        .span1{
+            zoom:5;
+        }
+        .span2{
+            zoom:0.5;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <li class="name">王小二</li>
+        <li class="work">工程师</li>
+        <li class="name">张小三</li>
+        <li class="work">程序员</li>
+    </div>
+    <div class="div1"></div>
+    <div class="div2"></div>
+    <div class="clearfloat"></div>
+    <div class="div3"></div>
+    <div>
+        <span>zoom可以用来设置元素的放大倍数</span>
+        <span class="span1">zoom放大5倍</span>
+        <span class="span2">zoom缩小一半</span>
+        <div class="div3 span2">zoom缩小一半</div>
+    </div>
+</body>
+</html>

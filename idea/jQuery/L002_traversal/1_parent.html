@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>parent</title>
+    <script src="../L001_HTML/jquery-3.1.0.js"></script>
+    <script>
+        $(document).ready(function(){
+			$('#btn1').click(function(){
+				$('span').parent().css({
+					'color':'red',
+					'border':'2px solid blue'
+				});
+			});
+			
+			
+			$('#btn2').click(function(){
+				$('span').parents().css({
+					'color':'yellow',
+					'border':'2px dotted red'
+				})
+			})
+			
+            
+			$('#btn3').click(function(){
+				$('b').parents('div').css({
+					'color':'orange',
+					'border':'2px dashed green'
+				});
+			});
+			
+            $('#btn4').click(function(){
+				$('b').parentsUntil('div').css({
+					'color':'yellow',
+					'border':'2px solid dark'
+				})
+			})
+        });
+    </script>
+    <style>
+        .ancestors *
+        {
+            display: block;
+            border: 2px solid lightgrey;
+            color: lightgrey;
+            padding: 5px;
+            margin: 15px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">寻找直接父亲</button>
+    <button id="btn2">寻找所有父类</button>
+    <button id="btn3">寻找某个父类</button>
+    <button id="btn4">寻找某些父类</button>
+    <div class="ancestors">
+        <div style="width:500px;">div(曾祖父)
+            <ul>ul(祖父)
+                <li>li(直接父亲)
+                    <span>span</span>
+                </li>
+            </ul>
+        </div>
+
+        <div style="width:500px;">div(祖父)
+            <p>p(直接父亲)
+                <b>b</b>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>create an object</title>
+</head>
+<body>
+    <script>
+        people = new Object();
+        people.name = "Kevin";
+        people.age = 30;
+        document.write("name:" + people.name + " age:" + people.age + "<br />");
+
+        people = {name:"Echo", age:"25"};
+        document.write("name:" + people.name + " age:" + people.age + "<br />");
+
+        function Mr(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        var right = new Mr("Jame", 35);
+        document.write("name:" + right.name + " age:" + right.age + "<br />");
+    </script>
+</body>
+</html>

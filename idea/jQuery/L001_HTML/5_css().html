@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css()</title>
+    <script src="jquery-3.1.0.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#btn1').click(function(){
+				alert("p1: " + $('#p1').css('background-color') + '\n' + 
+				      "p2: " + $('#p2').css('background-color') + '\n' + 
+					  "p3: " + $('#p3').css('background-color') );
+			})
+			$('#btn2').click(function(){
+				$('#p4').css({
+					"background-color":"pink",
+					"color":"white"
+				});
+			})
+        });
+    </script>
+</head>
+<body>
+    <p id="p1" style="background-color:#ff0000">这是一个段落。</p>
+    <p id="p2" style="background-color:#00ff00">这是一个段落。</p>
+    <p id="p3" style="background-color:#0000ff">这是一个段落。</p>
+    <p id="p4">这是一个段落。</p>
+    <button id="btn1">返回元素背景色</button>
+    <button id="btn2">设置背景色</button>
+</body>
+</html>

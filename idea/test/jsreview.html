@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>js复习</title>
+</head>
+
+<body>
+<script>	
+	function Person(){};
+	var person1 = new Person();
+	Person.prototype.sayhi = function(){
+		console.log("hellooo");
+	};
+	person1.sayhi();
+	
+	Person.prototype = {
+		constructor:Person,
+		name:"echo",
+		sayname:function(){
+			console.log(this.name);
+		}
+	};
+	var person2 = new Person();
+	person2.sayname();
+	
+	console.log(person1.constructor === person2.constructor); //true
+	console.log(Object.getPrototypeOf(person1) === Object.getPrototypeOf(person2)); //false
+	console.log(Person.prototype.isPrototypeOf(person1));//false
+	console.log(Person.prototype.isPrototypeOf(person2));//true
+	/*
+	function createFunctions(){
+		var result = new Array();
+		for(var i=0; i<10; i++){
+			result[i] = function(){
+				return i;
+			}
+		}
+		return result;
+	}
+	for(var i=0; i<10; i++){
+		console.log(createFunctions()[i]()); //全为10
+	}
+	*/
+	function createFunctions(){
+		var result = new Array();
+		for(var i=0; i<10; i++){
+			result[i] = function(n){
+				return function(){
+					return n;
+				};
+			}(i);
+		}
+		return result;
+	}
+	for(var i=0; i<10; i++){
+		console.log(createFunctions()[i]()); //0~9
+	}
+</script>
+
+</body>
+</html>

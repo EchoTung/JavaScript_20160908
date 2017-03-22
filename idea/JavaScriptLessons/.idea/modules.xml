@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/JavaScriptLessons.iml" filepath="$PROJECT_DIR$/JavaScriptLessons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../jQuery/jQuery.iml" filepath="$PROJECT_DIR$/../jQuery/jQuery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../project.iml" filepath="$PROJECT_DIR$/../project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project example/project example.iml" filepath="$PROJECT_DIR$/project example/project example.iml" />
+    </modules>
+  </component>
+</project>

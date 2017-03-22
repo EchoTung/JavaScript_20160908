@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Element</title>
+</head>
+<body>
+    <p name="pn">aaa</p>
+    <p name="pn">bbb</p>
+    <p name="pn">ccc</p>
+    <a id="link" href="https://www.douban.com">豆瓣</a>
+    <button id="btn">改变链接</button>
+    <ul><li>1</li><li>2</li><li>3</li></ul>
+    <div id="did">
+        <p id="pid">父结点测试</p>
+    </div>
+    <script>
+	/*
+        function getName() {
+        //    var name = document.getElementsByTagName("p");
+            var name = document.getElementsByName("pn");
+            alert("There are "+ name.length + " pn.");
+            name[1].innerHTML = "hello";
+        }
+     //   getName();
+
+        function getAttr() {
+            var node = document.getElementById("link");
+            alert(node.getAttribute("href"));
+        }
+    //    getAttr();
+
+        function setAttr(){
+            var node = document.getElementById("link");
+            node.setAttribute("href","https://www.baidu.com");
+            node.innerHTML = "百度";
+        }
+        var btn = document.getElementById("btn");
+        btn.addEventListener("click", setAttr);
+
+        function getChild() {
+            var node = document.getElementsByTagName("ul")[0].childNodes;
+            alert(node.length);
+            alert(node[0].nodeType);
+        }
+     //   getChild();
+
+        function getParent() {
+            var node = document.getElementById("pid");
+            alert(node.parentNode.nodeName);
+        }
+     //   getParent();
+		*/
+		function createNode(){
+			var parent = document.body;
+			var node = document.createElement("input");
+			node.type = "text";
+			node.value = "新结点，请输入：";
+			node.style.color = "red";
+			parent.appendChild(node);
+		}
+		createNode();
+		
+		function insertNode(){
+			var parent = document.getElementById("did");
+			var sibling = document.getElementById('pid');
+			var node = document.createElement("p");
+			node.innerHTML = "I'm a new comer.";
+			var text = document.createTextNode("hellooo~");
+			node.appendChild(text);
+			parent.insertBefore(node,sibling);
+		}
+		insertNode();
+		
+		function removeNode(){
+			var parent = document.getElementById('did');
+			var node = document.getElementById('pid');
+		//	parent.removeChild(node);
+		//	parent.remove();
+			node.remove();
+		}
+		removeNode();
+    </script>
+</body>
+</html>

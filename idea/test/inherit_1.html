@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>inherit,盒子模型padding/margin</title>
+    <style>
+        *{
+            padding:0;
+            margin: 0;
+        }
+        /*body{
+            color: blue;
+        }
+        div{
+            width:300px;
+            margin:5px auto;
+            padding:5px;
+            border:1px solid red;
+            text-align:center;
+        }
+        table{
+
+            margin:5px auto;
+            border:1px solid orange;
+        }
+        td {
+            padding:5px;
+            color:forestgreen;
+            border:1px solid orange;
+        }*/
+
+        .div1{
+            width:500px;
+            border:1px solid red;
+            margin:5px auto;
+            padding:5px;
+        }
+        .div2{
+            width:300px;
+            border:1px solid blue;
+            margin:5px auto;
+            padding:5px;
+        }
+    </style>
+</head>
+<body>
+<!--    <div>
+        <p>测试CSS属性的<strong>继承</strong>性质</p>
+        <table>
+            <tr><td>表格一行一列</td> <td>表格一行二列</td></tr>
+            <tr><td>表格二行一列</td> <td>表格二行二列</td></tr>
+        </table>
+    </div>-->
+    <div class="div1">
+        <div class="div2">
+            <p>盒子模型中 margin 和 padding 的作用</p>
+        </div>
+    </div>
+</body>
+</html>

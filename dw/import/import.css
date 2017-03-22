@@ -1,0 +1,12 @@
+.div1{
+	width:200px;
+	height:200px;
+	background-color: green !important;
+	background-image: url("高圆圆9.jpg");
+	background-repeat: no-repeat; 
+	background-size: 200px auto;
+}
+
+.div2{
+	background-color: red;
+}

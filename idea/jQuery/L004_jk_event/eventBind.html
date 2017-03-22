@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>event</title>
+    <script src="jquery-3.1.0.js"></script>
+    <script>
+        $(document).ready(function(){
+			var obj = $('#clickMeBtn');/*
+			obj.on('click',clickHandler1);
+			obj.on('click',clickHandler2);
+			obj.off('click',clickHandler1);*/
+			
+			obj.bind('click',clickHandler1);
+			obj.bind('click',clickHandler2);
+		//	obj.unbind('click',clickHandler2);
+		//	obj.unbind('click');
+        });
+
+        function clickHandler1() {
+            console.log("click handler1");
+        }
+
+        function clickHandler2() {
+            console.log("click handler2");
+        }
+    </script>
+</head>
+<body>
+    <button id="clickMeBtn">Click Me</button>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>event target</title>
+    <script src="jquery-3.1.0.js"></script>
+    <script>
+        $(document).ready(function(){
+			$('body').on('click',bodyHandler);
+			$('div').on('click',divHandler1);
+			$('div').on('click',divHandler2);
+		})
+		
+        function bodyHandler(event) {
+            console.log('hello,body handle: ' + event.target);
+        }
+
+        function divHandler1(event) {
+            console.log('hello,div handle1: ' + event.target);
+		//	event.stopPropagation();
+			event.stopImmediatePropagation();
+        }
+
+        function divHandler2(event) {
+            console.log('hello,div handle2: ' + event.target);
+        }
+    </script>
+</head>
+<body>
+    <div style="width:200px; height:200px; background:lightblue">
+        <ul>
+            <li>A</li>
+            <li>B</li>
+            <li>C</li>
+            <li>D</li>
+        </ul>
+    </div>
+</body>
+</html>

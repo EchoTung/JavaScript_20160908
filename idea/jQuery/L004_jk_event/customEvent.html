@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义事件event</title>
+    <script src="jquery-3.1.0.js"></script>
+    <script>
+        var clickMeBtn;
+        $(document).ready(function() {
+            clickMeBtn = $("#clickMeBtn");
+            clickMeBtn.click(function () {
+                var e = jQuery.Event("myEvent");
+                clickMeBtn.trigger(e);
+            });
+
+            /*clickMeBtn.on("myEvent", function(event) {
+                console.log(event);
+            })*/
+            clickMeBtn.on("myEvent", function(){ //指定 myEvent
+                alert("触发自定义事件");
+            })
+        });
+
+    </script>
+</head>
+<body>
+    <button id="clickMeBtn">Click Me!</button>
+</body>
+</html>

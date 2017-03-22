@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>add an element</title>
+    <script src="jquery-3.1.0.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#btn1").click(function() {
+                var obj = $('.add');
+				obj.append(" about the nobal.");
+				obj.prepend("<strong>Overall:</strong>");
+            });
+
+            $("#btn2").click(function () {
+                var obj = $('ol');
+				obj.prepend('<li>list item 0</li>');
+				obj.append('<li>list item 2</li>');
+            });
+
+            $("#btn3").click(function() {
+                var text1 = '<p>追加元素 HTML</p>';
+				var text2 = $('<p></p>').text('追加元素 jQuery');
+				var text3 = document.createElement('p').innerHTML = '追加元素 JavaScript';
+				$('body').append(text1,text2,text3);
+            });
+
+            $('#btn4').click(function() {
+				var obj = $('span');
+				obj.after('<em>after</em>');
+				obj.before('<em>before</em>');
+				
+				obj = $('ol');
+				obj.after('<em>after</em>');
+				obj.before('<em>before</em>');
+			});			
+
+            $('#btn5').click(function(){
+				$('div').remove();
+			});
+			$('#btn6').click(function(){
+				$('div').empty();
+			});
+			$('#btn7').click(function(){
+				$('p').remove('#remove');
+			});
+        });
+    </script>
+</head>
+<body>
+    <span>追加元素的多种方式</span>
+    <div style="border:1px solid red; width:500px; height:100px; color:pink;">
+        This is some text in the div.
+        <p>This is a paragraph in the div.</p>
+        <p id="remove">This is another paragraph in the div.</p>
+    </div>
+    <p class="add">This is a paragraph</p>
+    <ol>
+        <li>list item 1</li>
+    </ol>
+    <button id="btn1">追加文本</button>
+    <button id="btn2">追加表项</button>
+    <button id="btn3">追加方式</button>
+    <button id="btn4">前后左右</button>
+    <button id="btn5">删除元素</button>
+    <button id="btn6">清空元素</button>
+    <button id="btn7">过滤元素</button>
+</body>
+</html>

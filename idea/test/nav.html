@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>navigation</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        .body{
+            width:800px;
+            margin:1px auto;
+            background-color:whitesmoke;
+            border:1px solid whitesmoke;
+        }
+
+        #header{
+            width:762px;
+            height:54px;
+            border:1px dashed #CC6699;
+            margin:5px auto;
+            padding:2px;
+        }
+        .hBox{
+            width:250px;
+            height:50px;
+            margin:1px;
+            border:1px solid #00ffff;
+            float:left;
+        }
+
+        .menu{
+            list-style:none;
+            color:white;
+            height:30px;
+            background-color:#d43f3a;
+            margin:15px;
+            padding:5px;
+        }
+        .menu li{
+            float: left;
+            width:50px;
+            border-right:2px solid white;
+            line-height: 20px;
+            margin:5px;
+            padding-right:20px;
+            padding-left:20px;
+        }
+        .menu .last{
+            border-right-style:none;
+        }
+
+        .content{
+            height:430px;
+        }
+        .left{
+            float:left;
+            width:300px;
+            height:400px;
+            margin:15px;
+            border:1px solid red;
+        }
+        .right{
+            float:right;
+            width:430px;
+            height:400px;
+            margin:15px;
+            border:1px solid red;
+        }
+
+        #loginView{
+            border:1px solid #0f54c3;
+            width:280px;
+            margin:1px 0;
+        }
+        h3{
+            border:2px solid #0f54c3;
+            padding-top:5px;
+            padding-right:5px;
+            padding-bottom:5px;
+            padding-left:15px;
+            font-size:10.5pt;
+        }
+        #loginView p{
+            margin:3px;
+            text-align:center;
+        }
+        .textInput{
+            width:160px;
+            height:16px;
+            border:1px solid #cccccc;
+        }
+        #loginView ul{
+            list-style:none;
+            margin:8px 10px 3px 10px;
+        }
+        #loginView ul li{
+            float:left;
+            width:130px;
+            height:18px;
+        }
+        .clear{
+            clear:left;
+        }
+    </style>
+</head>
+<body>
+    <div class="body">
+        <div id="header">
+            <div class="hBox">logo</div>
+            <div class="hBox">advertise</div>
+            <div class="hBox">appendix</div>
+        </div>
+
+        <ul class="menu">
+            <li>菜单一</li>
+            <li>菜单二</li>
+            <li class="last">菜单三</li>
+        </ul>
+
+        <div class="content">
+            <div class="left">
+                <div class="info1"></div>
+                <div class="info2"></div>
+                <div class="info3"></div>
+            </div>
+            <div class="right"></div>
+        </div>
+
+        <div id="loginView">
+            <h3>用户登录</h3>
+            <form name="form1" method="post" action="#">
+                <p>用户名：
+                    <input type="text" class="textInput" name="userName"  id="userName" />
+                </p>
+                <p>密&nbsp码：
+                    <input type="password" class="textInput" name="password" id="password" />
+                </p>
+                <ul>
+                    <li>忘记密码？</li>
+                    <li>新用户注册</li>
+                    <li><input type="checkbox" name="checkbox" value="checkbox" />记住我</li>
+                </ul>
+                <p class="clear">
+                    <input type="submit" name="submit" value="登录" />
+                </p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

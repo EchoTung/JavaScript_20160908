@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>createobject</title>
+</head>
+
+<body>
+	<script>
+	/*//1. 工厂模式
+	function createPerson(name, age, job){
+		var o = new Object();
+		o.name = name;
+		o.age = age;
+		o.job = job;
+		o.sayName = function(){
+			console.log(this.name);	
+		};
+		return o;
+	}
+	var person1 = createPerson("Nicholas",29,"software engineer");
+	person1.sayName();
+	console.log(person1.job); //software engineer 可以访问内部成员*/
+	
+	//2.构造函数模式
+	/*function Person(name, age, job){
+		this.name = name;
+		this.age = age;
+		this.job = job;
+		this.sayName = function(){
+			console.log(this.name);	
+		};
+	}
+	var person2 = new Person("Nicholas",29,"software engineer");
+	person2.sayName();
+	console.log(person2.job);
+	
+	console.log(person2.constructor == Person); //true
+	console.log(person1 instanceof Object); //true
+	console.log(person2 instanceof Object, person2 instanceof Person);//true true
+	
+	Person("Echo", 21, "Web Engineer");//
+	sayName();//Echo
+	
+	var obj = new Object();
+	Person.call(obj,"Emma",21,"designer");//
+	obj.sayName(); //Emma
+	console.log(obj.job);//designer
+	
+	function Person(name, age, job){
+		this.name = name;
+		this.age = age;
+		this.job = job;
+		this.sayName = function(){
+			console.log(this.name);	
+		};
+	}*/
+	
+/*	function Person(name, age, job){
+		this.name = name;
+		this.age = age;
+		this.job = job;
+		this.sayName = sayName;
+	}
+	function sayName(){
+		console.log(this.name);
+	}
+	
+	var person2 = new Person("Echo", 21, "Engineer");
+	person2.sayName();
+	console.log(person2.job);*/
+	
+	/*
+	//3.原型模式
+	function Person(){
+	}
+	Person.prototype.name = "Nicholas";
+	Person.prototype.age = 27;
+	Person.prototype.job = "Engineer";
+	Person.prototype.sayName = function(){
+		console.log(this.name);
+	};
+	
+	var person31 = new Person();
+	person31.sayName();
+	var person32 = new Person();
+	person32.sayName();
+	console.log(person31.sayName == person32.sayName);//true
+	person31.name = "Echo";
+	console.log(person31.name, person32.name);//Echo Nicholas	
+	console.log(person31.constructor == Person); //true
+	*/
+	
+	/*
+	function Person(){
+	}
+	
+	Person.prototype = {
+		constructor:Person,
+		name: "Nicholas",
+		age: 27,
+		job: "Teacher",
+		sayName:function(){
+			console.log(this.name);
+		}
+	}
+	
+	var friend = new Person();
+	console.log(friend.constructor == Person);//true //false
+	*/
+/*	//4.组合使用构造函数模式和原型模式
+	function Person(name,age,job){
+		this.name = name;
+		this.age = age;
+		this.job = job;
+		this.friends = ["Shelby", "Court"];	
+	}
+	Person.prototype = {
+		constructor:Person,
+		sayName:function(){
+			console.log(this.name);	
+		}
+	}
+	var person1 = new Person("Nicholas", 29, "Teacher");
+	var person2 = new Person("Echo", 21, "Engineer");
+	person1.friends.push("Wendy");
+	
+	console.log(person1.friends, person2.friends);
+	console.log(person1.friends == person2.friends);
+	person1.sayName();
+	person2.sayName();
+	console.log(person1.sayName == person2.sayName);*/
+	
+	</script>
+</body>
+</html>

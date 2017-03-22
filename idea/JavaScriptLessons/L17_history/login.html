@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login page</title>
+</head>
+<body>
+    <form>
+        <input id="name" type="text" />用户名
+    </form>
+    <button onclick="checkName()">提交</button>
+    <script>
+        function checkName() {
+            if("hello" == document.getElementById("name").value) {
+                history.go(-1);
+            } else {
+                alert("输入错误");
+            }
+        }
+    </script>
+</body>
+</html>

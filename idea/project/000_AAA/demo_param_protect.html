@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>参数保护扩展</title>
+</head>
+<body>
+    <script>
+        //使用 Object.prototype.toString.call(param) 精确判断 param 类型
+        var str = "echo";//[1,2,3];
+        console.log(typeof(str)); // object
+        console.log(Object.prototype.toString.call(str)); // [object Array]
+        var json = [
+        {"name": "echo", "age": 25},
+        {"name": "andy", "age": 30}
+        ];
+        console.log(typeof(json)); // object
+        console.log(Object.prototype.toString.call(json)); // [object Array]
+
+        var json = {"name": "echo", "age": 25};
+        console.log(typeof(json)); // object
+        console.log(Object.prototype.toString.call(json)); // [object Object]
+        console.log(typeof(JSON)); // object
+        console.log(Object.prototype.toString.call(JSON)); // [object JSON]
+
+        function output(str) {
+        }
+        console.log( typeof(output) ); // function
+        console.log(Object.prototype.toString.call(output)); // [object Function]
+
+        var num = 123;
+        console.log( typeof(num) ); // number
+        console.log(Object.prototype.toString.call(num)); // [object Number]
+
+        var b = true;
+        console.log( typeof(b) ); // boolean
+        console.log(Object.prototype.toString.call(b)); // [object Boolean]
+
+        var re = /^\s+|\s$/g;
+        console.log( typeof(re) ); // object
+        console.log(Object.prototype.toString.call(re)); // [object RegExp]
+
+        /*        function call(func, para) {
+
+                    typeof(func) === 'function' && func(para);
+                }
+                call(output,"hellooo");
+
+
+
+                var objParam = {
+                    method:"GET",
+                    async:false
+                };
+
+                test(objParam);
+                test(1);
+
+                function test(objParam) {
+                    var objDefault = {
+                        async:true
+                    };
+
+                    var obj = extend(objDefault,objParam);
+                    console.log(obj);//所以当外部参数objParam不合法时，不会污染到内部参数objDefault
+                }
+
+                function extend(obj1,obj2) {
+                    //obj1与obj2属性一样，则以obj2属性值覆盖obj1
+                    if ( (Object.prototype.toString.call(obj1) === "[object Object]")
+                            && (Object.prototype.toString.call(obj2) === "[object Object]") ) {
+                        for(var name in obj2) {
+                            obj1[name] = obj2[name];
+                        }
+                    }
+                    return obj1; //所以当obj2不合法时，不会污染到obj1
+                }*/
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>演示封装代码</title>
+    <script src="ajax_jike_2.js"></script>
+</head>
+<body>
+    <input type="text" oninput="hit(this.value);" />
+    <div id="retList"></div>
+    <script>
+        function hit(keyword) {
+            ajax().before(function(){
+                alert('loading...');
+            }).post('/keyword/hit', {keyword:keyword},'json')
+                    .success(successHandler)
+                    .success(function(data){alert(data)})
+                    .error(errorHandler)
+                    .always(function (status, resText, xhr) {
+                        console.log('status:%s, text:%s', status, resText);
+                    });
+
+        }
+
+        function errorHandler(status, resText, xhr) {
+            console.log('status:%s, text:%s', status, resText);
+        }
+
+        function successHandler(ret) {
+            var eleRetList = document.getElementById('retList');
+            if (ret.length === 0) {
+                eleRetList.innerHTML = 'no result';
+            } else {
+                var domStr = '';
+                for(var i = 0, len = ret.length; i < len; ++i) {
+                    domStr += '<p>' + ret[i] + '</p>';
+                }
+                eleRetList.innerHTML = domStr;
+            }
+        }
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>filter</title>
+    <script src="jquery-3.1.0.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#btn1").click(function(){
+                $('div p').first().css({
+					"color":"red",
+                    "border":"2px solid red"
+				})
+            });
+            $("#btn2").click(function(){
+                $('div p').last().css({
+					"color":"red",
+                    "border":"2px solid red"
+				})
+            });
+            $("#btn3").click(function(){
+                $('div p').eq(0).css({
+					"color":"red",
+                    "border":"2px solid red"
+				})
+            });
+            $("#btn4").click(function(){
+                $('div p').filter('.sel').css({
+					"color":"red",
+                    "border":"2px solid red"
+				})
+            });
+            $("#btn5").click(function(){
+                $('div p').not('.sel').css({
+					"color":"red",
+                    "border":"2px solid red"
+				})
+            })
+        });
+    </script>
+</head>
+<body>
+    <button id="btn1">first</button>
+    <button id="btn2">last</button>
+    <button id="btn3">eq</button>
+    <button id="btn4">filter</button>
+    <button id="btn5">not</button>
+    <h1>欢迎来到我的主页</h1>
+    <div>
+        <p>这是div1中的一个段落1。</p>
+        <p>这是div1中的一个段落2。</p>
+        <p class="sel">这是div1中的一个段落3。</p>
+        <p>这是div1中的一个段落4。</p>
+        <p>这是div1中的一个段落5。</p>
+    </div>
+    <p>这是div之外的段落。</p>
+</body>
+</html>

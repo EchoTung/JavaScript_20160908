@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>appendTo</title>
+    <script src="../L004_jk_event/jquery-3.1.0.js"></script>
+    <style type="text/css">
+        .div{
+            width:100px;
+            height:100px;
+            background: orange;
+            float:left;
+            margin:2px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    $(document).ready(function(){
+		for(var i=0; i<5; i++){
+			$('<div>').addClass('div').appendTo('body');
+		}
+		$('div').click(function(){
+			$(this).hide(1000,function(){
+				$(this).remove();
+			});
+		})
+	})
+</script>
+</body>
+</html>

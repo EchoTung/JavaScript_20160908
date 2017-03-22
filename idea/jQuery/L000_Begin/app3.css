@@ -1,0 +1,24 @@
+#demo2 {
+    display: none;
+}
+
+#div1 {
+    width:80px;
+    height:80px;
+    display: none;
+    background: red;
+}
+
+#div2 {
+    width:80px;
+    height:80px;
+    display: none;
+    background: green;
+}
+
+#div3 {
+    width:80px;
+    height:80px;
+    display: none;
+    background: blue;
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>extractContents</title>
+</head>
+<body>
+    <script>
+        function moveContent() {
+            var srcDiv = document.getElementById("srcDiv");
+            var desDiv = document.getElementById("desDiv");
+            var rangeObj = document.createRange();
+            rangeObj.selectNodeContents(srcDiv);
+            var docFragment = rangeObj.extractContents();
+            desDiv.appendChild(docFragment);
+        }
+    </script>
+    <div id="srcDiv" style="background-color:aquamarine; width:300px;height:60px;">
+        您好么
+        <p>还可以吧，心里还有热血</p>
+    </div>
+    <div id="desDiv" style="background-color:bisque; width:300px;height:60px;">
+    </div>
+    <button onclick="moveContent()">移动元素</button>
+</body>
+</html>

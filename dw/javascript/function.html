@@ -1,0 +1,256 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>函数表达式闭包私有变量等</title>
+</head>
+
+<body>
+	<script>
+	//1.闭包只能取得外部函数中任何变量的最后一个值？ P181
+	function createFunctions(){
+		var result = [];
+		for (var i = 0; i < 5; i++){
+			
+			result[i] = function(){
+				return i;
+			};
+			/*
+			result[i] = function(num){
+				return function(){
+					return num;
+				};
+			}(i);*/
+		}
+		return result;
+	}
+	console.log(createFunctions());
+	
+	//2.匿名函数中的 this 指向 window P182
+	/*
+	var name = "The Window";
+	var object = {
+		name : "My Object",
+		getName : function(){
+			return function(){
+				return this.name;
+			};
+		}
+	};
+	console.log(object.getName()());//The Window
+	*//*
+	var name = "The Window";
+	var object = {
+		name : "My Object",
+		getName : function(){
+			var that = this;
+			return function(){
+				return that.name;
+			};
+		}
+	};
+	console.log(object.getName()());//My Object
+	*//*
+	var name = "The Window";
+	var object = {
+		name : "My Object",
+		getName : function(){
+			return this.name;
+		}
+	};
+	console.log(object.getName());//My Object
+	*/
+	/*
+	var name = "The Window";
+	var object = {
+		name : "My Object",
+		getName : function(){
+			return name;
+		}
+	};
+	console.log(object.getName());//The Window
+	*/
+	/*
+	//内部函数的 arguments 指向自身的参数，故不能通过 arguments 访问外部函数的参数
+	function testArguments(value){
+		var val = 10;
+		console.log(arguments[0]); //3
+		
+		return function(number){
+			var num = 20;
+			return arguments[0]+value+val;
+		}
+	}
+	var fun = testArguments(3); //返回的是一个函数
+	console.log(fun(5)); //18  testArguments(3)(5)
+	*/
+	/*
+	var val = 20;
+	function thisPointer(){
+		var val = 10;
+		return function(num){
+			return this.val+num;
+		}
+	}
+	var fun = thisPointer();
+	console.log(fun(5));//25
+	*//*
+	var val = 20;
+	function thisPointer(){
+		var val = 10;
+		return function(num){
+			return val+num;
+		}
+	}
+	var fun = thisPointer();
+	console.log(fun(5));//15
+	*//*
+	var val = 20;
+	function thisPointer(){
+		this.val = 10;
+		console.log("1:" + this + "," + this.val);     //1:[object,Window],10
+		return function(num){
+			console.log("2:" + this + "," + this.val); //2:[object,Window],10
+			return this.val+num;
+		}
+	}
+	console.log(thisPointer()(5));//15
+	
+	var name = "The Window";
+	var person = {
+		name : "My Object",
+		getName : function(){
+			console.log("1:" + this + "," + this.name);     //1:[object Object],My Object
+			return function(){
+				console.log("2:" + this + "," + this.name); //2:[object Window],The Window
+				return this.name;
+			};
+		}
+	};
+	console.log(person.getName()());//The Window
+	*/
+	var name = "The Window";
+	var squad = {
+		name : "My Class",
+		students : [{
+			name : "Student_1",
+			getName : function(){
+				console.log("1:" + this + "," + this.name);     //1:[object Object],Student_1
+				return function(){
+					console.log("2:" + this + "," + this.name); //2:[object Window],The Window
+					return this.name;
+				};
+			}
+		},{
+			name : "Student_2",
+			getName : function(){
+				console.log("1:" + this + "," + this.name);     //1:[object Object],Student_2
+				return function(){
+					console.log("2:" + this + "," + this.name); //2:[object Window],The Window
+					return this.name;
+				};
+			}
+		}],
+		setMonitor : function(num){
+		//	return this.students[num].getName()();
+			console.log(this.students[num].getName()());//The Window
+		}
+	};
+//	console.log(squad.setMonitor(0));//The Window
+	squad.setMonitor(0);
+	
+	/*
+	//模仿块级作用域
+	function outputNumbers(count){
+		(function(){
+			for (var i=0; i<count; i++){
+				console.log(i);
+			}
+		})();
+		
+		console.log(i);//这里不能访问 i
+	}
+	outputNumbers(5);
+	*/
+	/*
+	//特权方法
+	function MyObject(){
+		//私有变量
+		var privateVariable = 10;
+		//私有函数
+		function privateFunction(){
+			return privateVariable;
+		}
+		//公有函数 （特权方法）
+		this.publicMethod = function(){
+			privateVariable++;
+			return privateFunction();
+		};
+	}
+	var obj = new MyObject();
+	console.log(obj.publicMethod());
+	*//*
+	function Person(name){
+		var _name = name;
+				
+		this.setName = function(value){
+			_name = value;
+		}
+		
+		this.getName = function(){
+			return _name;
+		}
+	}
+	var person1 = new Person("Echo");
+	console.log(person1.getName());
+	person1.setName("Emma");
+	console.log(person1.getName());
+	
+	var person2 = new Person("Sara");
+	console.log(person2.getName());
+	person2.setName("Jane");
+	console.log(person2.getName());
+	*/
+	/*
+	(function(){
+		var privateVariable = 10;
+		function privateFunction(){
+			return privateVariable;
+		}
+		
+		MyObject = function(){
+		};
+		
+		MyObject.prototype.publicMethod = function(){
+			privateVariable++;
+			return privateFunction();
+		}
+	})();
+	
+	var obj = new MyObject();
+	console.log(obj.publicMethod()); //11
+	*/
+	/*
+	(function(){
+		var _name = "";
+		Person = function(name){
+			_name = name;	
+		};
+		Person.prototype.setName = function(value){
+			_name = value;
+		};
+		Person.prototype.getName = function(){
+			return _name;	
+		}
+	})();
+	var person1 = new Person("Echo");
+	console.log(person1.getName());
+	person1.setName("Emma");
+	console.log(person1.getName());
+	var person2 = new Person("Sara");
+	console.log(person2.getName());
+	person2.setName("Jane");
+	console.log(person2.getName());*/
+	</script>
+</body>
+</html>

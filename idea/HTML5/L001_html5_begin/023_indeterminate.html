@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>indeterminate</title>
+</head>
+<body>
+    <input type="checkbox" indeterminate id="cb" />属性测试
+    <script>
+        var cb=document.getElementById("cb");
+        cb.indeterminate = true;//false时复选框2种状态：选中和未选中; true时3种状态：+ 状态未明
+    </script>
+</body>
+</html>

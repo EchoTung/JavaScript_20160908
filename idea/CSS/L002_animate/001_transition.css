@@ -1,0 +1,16 @@
+div{
+    width:100px;
+    height:100px;
+    background-color:blue;
+    transition:width 1s, height 1s, transform 1s;/*是指 div:hover 里定义的变换动作 rotate */
+    -webkit-transition:width 1s,height 1s, -webkit-transform 1s;
+    transition-delay:1s;
+    -webkit-transition-delay:1s;
+}
+
+div:hover{
+    width:200px;
+    height:200px;
+    transform:rotate(360deg);
+    -webkit-transform:rotate(360deg);
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax</title>
+</head>
+<body>
+    <script>
+        function loadXMLDoc() {
+            var xmlhttp;
+            if(window.XMLHttpRequest) {
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+			//异步 responseText
+            xmlhttp.onreadystatechange = function() {
+                if((xmlhttp.readyState == 4) && (xmlhttp.status == 200)) {
+                    document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
+                }
+            };
+            xmlhttp.open("GET", "/demo_ajax.txt", true); //"demo_ajax.txt?t=" + Math.random()
+            xmlhttp.send();
+            
+            /* //false
+             xmlhttp.open("GET","demo_ajax.txt",false);
+             xmlhttp.send();
+             document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
+             */
+			 /*
+            //responseXML
+            xmlhttp.onreadystatechange = function() {
+                if((xmlhttp.readyState == 4) && (xmlhttp.status == 200)) {
+                    xmlDoc = xmlhttp.responseXML;
+                    var txt = "";
+                    var x = xmlDoc.getElementsByTagName("title");
+                    for(var i=0; i<x.length; i++) {
+                        txt += x[i].childNodes[0].nodeValue + "<br />";
+                    }
+                    document.getElementById("myDiv").innerHTML = txt;
+                }
+            };
+            xmlhttp.open("GET", "books.xml", true);
+            xmlhttp.send();
+			*/
+        }
+    </script>
+    <button onclick="loadXMLDoc()">请求数据</button>
+    <div id="myDiv"></div>
+</body>
+</html>

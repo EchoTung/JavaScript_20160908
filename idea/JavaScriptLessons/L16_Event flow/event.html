@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>event flow</title>
+</head>
+<body>
+
+<!--  若方法名修改，需要多处修改，容易出错
+    <div id = "did">
+        <button id="btn" onclick="demo()">按钮</button>
+    </div>
+    <script>
+        function demo() {
+            alert("hellooo");
+        }
+    </script>
+ -->
+<!-- 只能应对一个方法，新添加方法，旧方法会被覆盖掉，不灵活
+   <div id = "did">
+        <button id="btn">按钮</button>
+    </div>
+    <script>
+        var btn = document.getElementById("btn");
+        btn.onclick = function() {alert("hello DOM0级事件处理程序1");};
+        btn.onclick = function() {alert("hello DOM0级事件处理程序2");};
+        btn.onclick = null;
+    </script>
+-->
+<!-- 通过添加监听器的办法可以处理多个响应方法，灵活
+    <div id = "did">
+        <button id="btn">按钮</button>
+    </div>
+    <script>
+        var btn = document.getElementById("btn");
+        btn.addEventListener("click",demo1);
+        btn.addEventListdener("click",demo2);
+        function demo1(){
+            alert("hello DOM2级事件处理程序1");
+        }
+        function demo2(){
+            alert("hello DOM2级事件处理程序2");
+        }
+    </script>
+-->
+<!--//浏览器的兼容性处理 attachEvent()/detachEvent()
+    <div id = "did">
+        <button id="btn">按钮</button>
+    </div>
+    <script>
+        var btn = document.getElementById("btn");
+        if (btn.addEventListener) {
+            btn.addEventListener("click",demo);
+        } else if (btn.attachEvent) {
+            btn.attachEvent("onclick",demo);
+        } else {
+            btn.onclick = demo();
+        }
+        function demo() {
+            alert("hellooo");
+        }
+    </script>
+-->
+//事件冒泡、事件冒泡阻止、事件默认阻止
+    <div id = "did">
+        <button id="btn">按钮</button>
+        <a id="aid" href="https://www.baidu.com">Here's a link</a>
+    </div>
+    <script>
+        document.getElementById("btn").addEventListener("click", showType);
+        document.getElementById("did").addEventListener("click", showDiv);
+        document.getElementById("aid").addEventListener("click", showA);
+        function showType(event) {
+//            alert(event.type);
+            alert(event.target);
+            event.stopPropagation();
+        }
+        function showDiv() {
+            alert("hellooo,div");
+        }
+        function showA(event) {
+			alert(event.target);
+        //    event.stopPropagation();
+            event.preventDefault();
+        }
+    </script>
+
+</body>
+</html>

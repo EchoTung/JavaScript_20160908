@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cloneRange</title>
+    <style type="text/css">
+        #txt{
+            background-color:greenyellow;
+            height:50px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function cloneRange() {
+            var p = document.getElementById("txt");
+            var rangeObj = document.createRange();
+            rangeObj.selectNode(p);
+            var rangeClone = rangeObj.cloneRange();
+            alert(rangeClone.toString());
+            rangeObj.deleteContents();
+        }
+    </script>
+    <p id="txt">这是随便书写的内容</p>
+    <button onclick="cloneRange()">克隆</button>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>reference</title>
+</head>
+<body>
+    <script>
+    	/*
+        var string = "hello world";
+        console.log(string.slice(-3,-1));
+        console.log(string.substring(01,-4));
+        console.log(string.substr(-3,2));
+
+	var var1 = "false";
+	var var2 =  false;
+	console.log(typeof var1, typeof var2);
+	console.log(Boolean(var1),Boolean(var2));
+	*/
+/*
+var str="Visit W3School. hello Learn JavaScript."; 
+var patt1=/\hello|\123/g;
+var patt2=new RegExp("\hello|\123","g");
+document.write(str.match(patt1)+"<br />");
+document.write(str.match(patt2));
+*/
+/*
+var text = "this has been a ahort holiday";
+var pattern = /.hort/g;
+if(pattern.test(text)){
+	alert(RegExp.input);
+	alert(RegExp.leftContext);
+	alert(RegExp.rightContext);
+	alert(RegExp.lastMatch);
+	alert(RegExp.lastParen);
+}
+*/
+/* 多个捕获组时,捕获组之间 与关系 和 或关系 
+var text = "mom and dad and baby fun and dad and baby far and dad and baby";
+//var pattern = /(...)( and dad( and baby))/gi;
+var pattern = /( and dad)( and baby)|( f..)/gi;
+var matches = null;
+matches = pattern.exec(text)
+console.log(matches, pattern.lastIndex);
+matches = pattern.exec(text)
+console.log(matches);
+matches = pattern.exec(text)
+console.log(matches);
+matches = pattern.exec(text)
+console.log(matches);
+*/
+
+
+/* 同一个 pattern 在不同 string 上搜索 会引起错误 ?!
+var str="abc ext eat bat est";
+var str2="abc ext eat bat est";
+var patt1=/e(.)t/g;
+var matches;
+for(var i=0; i<3; i++){
+matches = patt1.exec(str);
+document.write(matches + ",");
+document.write(matches.index + "<br />")
+}
+
+document.write(patt1.lastIndex + "<br />")
+
+var e;
+for(var i=0; i<3; i++){
+e = patt1.exec(str2);
+document.write(e + ",");
+document.write(e.index + "<br />")
+}
+*/
+
+    </script>
+</body>
+</html>

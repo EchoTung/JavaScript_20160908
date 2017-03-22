@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>event</title>
+    <link type="text/css" rel="stylesheet" href="event.css" />
+    <script src="event.js"></script>
+</head>
+<body>
+	<div onmouseover="onOver(this)" onmouseout="onOut(this)"></div>
+    <form>
+    	<input type="text" onchange="chgResponse()" >
+    	<input type="text" onselect="selResponse(this)" 
+         onfocus="focResponse(this)" onblur="blurResponse(this)" >
+    </form>    
+</body>
+</html>

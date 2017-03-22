@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Date Object</title>
+</head>
+<body onload="showTime()">
+    <p id="time"></p>
+    <script>
+        function showTime() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+         //   m = checkTime(m);
+        //    s = checkTime(s);
+            document.getElementById("time").innerHTML = h + ":" + m + ":" + s;
+			
+            t = setTimeout(function () {
+                showTime();
+            }, 1000);
+        }
+		/*
+        function checkTime(x) {
+            if(x < 0) {
+                x = "0" + x;
+            }
+            return x;
+        }*/
+		
+    </script>
+
+</body>
+</html>

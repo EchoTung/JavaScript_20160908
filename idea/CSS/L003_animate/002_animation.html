@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>animation</title>
+    <style>
+        div{
+            background-color: #ffff00;
+            position:relative;
+            top:100px;
+            width:500px;
+        }
+        @-webkit-keyframes myColor {
+            0%{
+                background-color: red;
+                transform:rotate(0deg);
+            }
+            30%{
+                background-color: cyan;
+                transform:rotate(30deg);
+            }
+            60%{
+                background-color: aquamarine;
+                transform:rotate(-30deg);
+            }
+            100%{
+                background-color: red;
+                transform:rotate(0deg);
+            }
+        }
+        div:hover{
+            /*-webkit-animation: myColor 5s ease;*/
+            -webkit-animation-name:myColor;
+            -webkit-animation-duration:5s;
+            -webkit-animation-timing-function:ease;
+        }
+    </style>
+</head>
+<body>
+<!-- linear ease-in ease-out ease ease-in-out -->
+    <div>示例文字</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>position relative padding</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        .div1{
+            border:2px dashed red;
+            background-color:greenyellow;
+            box-sizing:padding-box;
+            width:200px;
+            height:200px;
+            margin:10px;
+            padding:5px;
+        }
+        .div2{
+            border:2px dashed red;
+            background-clip:content-box;
+            background-color:pink;
+            width:100px;
+            height:100px;
+            margin:10px;
+            padding:5px;
+            position:relative;
+            top:-15px;
+            left:-15px;
+        }
+        .tst{
+            background-color:red;
+            width:214px;
+            height:214px;
+            margin-top:-10px;
+            margin-left:10px;
+            position:relative;
+            top:-214px;
+            left:214px;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">
+        <div class="div2"></div>
+    </div>
+    <div class="tst"></div>
+</body>
+</html>

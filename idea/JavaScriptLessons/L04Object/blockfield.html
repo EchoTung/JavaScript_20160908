@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>语法测试</title>
+</head>
+<body>
+    <script>
+        //封装和方链
+		
+        (function(){
+            window.A = function(options){
+                var _obj = {
+                    name:"echo",
+                    age:25,
+                    options:options
+                };
+
+				function check(opt){
+					console.log("options:" + opt);
+				}
+				
+                A.prototype.output = function() {
+                    console.log("name:" + _obj.name);
+                    check(_obj.options);
+                    return this;
+                };
+                A.prototype.sayHello = function() {
+                    console.log("hellooo");
+                    return this;
+                }
+            };
+        })();
+
+        var a = new A("It works");
+        a.sayHello().output();
+
+		var b = new A("It failed");
+		b.sayHello().output();
+		
+		a.sayHello().output();
+		
+    </script>
+</body>
+</html>

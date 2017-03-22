@@ -1,0 +1,57 @@
+
+$(document).ready(function(){
+	$(window).on("load",function(){
+		imgLocation();
+
+		var imgData = {"data":[{"src":"高圆圆1.jpg"},{"src":"高圆圆3.jpg"},{"src":"高圆圆7.jpg"},{"src":"高圆圆4.jpg"},
+							   {"src":"高圆圆6.jpg"},{"src":"高圆圆2.jpg"},{"src":"高圆圆5.jpg"},{"src":"高圆圆8.jpg"},
+							   {"src":"高圆圆9.jpg"},{"src":"高圆圆10.jpg"}]};
+        
+        window.onscroll = function(){
+        	if( isCloseToEnd()){
+        		$.each(imgData.data, function(index, value){
+	        		var box = $("<div>").addClass("box").appendTo($("#container"));
+	        		var box_img = $("<div>").addClass("box_img").appendTo(box);
+					var img = $("<img>").attr("src","img/"+$(value).attr("src")).appendTo(box_img);
+	        	});
+	        	imgLocation();
+        	}
+        }
+	});
+});
+
+function isCloseToEnd(){
+	var box = $(".box");
+	var lastTopHeight = box.last().get(0).offsetTop + Math.floor(box.last().height()/2);
+	var scrollHeight = $(window).scrollTop();
+	var pageHeight = $(window).height();
+	return (lastTopHeight < scrollHeight + pageHeight) ? true : false;
+}
+
+function imgLocation(){
+	var box = $(".box");
+	var imgWidth = box.first().innerWidth();
+	var docWidth = $(window).width();
+	var imgCols = Math.floor(docWidth/imgWidth);
+	box.parent().css({
+		"width":imgCols*imgWidth,
+		"margin":"0 auto"
+	});
+
+	var imgHeightArray = [];
+	box.each(function(index, value){
+		var imgHeight = box.eq(index).innerHeight(); //此为jQuery方法，对应JavaScript--引用html属性：box.eq(index).get(0).offsetHeight
+		if(index < imgCols){
+			imgHeightArray[index] = imgHeight;
+		} else {
+			var minHeight = Math.min.apply(null, imgHeightArray);
+			var minIndex = $.inArray(minHeight, imgHeightArray);
+			$(value).css({
+				"position" : "absolute",
+				"top" : minHeight + "px",
+				"left" : box.eq(minIndex).position().left + "px"
+			});
+			imgHeightArray[minIndex] += imgHeight;
+		}
+	});
+}

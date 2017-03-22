@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>window</title>
+</head>
+<body>
+    <button id="btn" onclick="btnClicked()">按钮</button>
+    <script>
+        document.write("宽度："+ window.innerWidth + " 高度：" + window.innerHeight);
+        document.write("宽度："+ window.outerWidth + " 高度：" + window.outerHeight);
+        function btnClicked() {
+            window.open("https://www.baidu.com","_blank","height=100,width=100,toolbar=no,scrollbars=yes,resizable=yes");
+        //    window.close();
+        }
+    </script>
+</body>
+</html>

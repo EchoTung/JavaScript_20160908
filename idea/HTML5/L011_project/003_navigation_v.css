@@ -1,0 +1,38 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    font-family:"Lantinghei SC","Microsoft Yahei",宋体,Arial,Helvetica,sans-serif;
+    font-size:14px;
+    line-height:1.4px;
+    min-width:600px;
+}
+.adminMenuWrap{
+    position:relative;
+    float:left;
+    width:160px;
+    background-color:#222;
+}
+.adminMenu{
+    clear:left;
+    margin:12px 0;
+    list-style:none;
+    width:160px;
+    background-color:#222;
+}
+.menu{
+    min-height:34px;
+    cursor:pointer;
+}
+.menu a{
+    padding:10px 0;
+    display:block;
+    color:#fff;
+    text-decoration:none;
+    text-indent:40px;
+}
+a:hover{
+    background-color:#000;
+    color:#1abc9c;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>time internal</title>
+</head>
+<body onload="myWin()">
+    <button onclick="stopTime()">时间静止</button>
+    <button onclick="stopTimer()">终止计数</button>
+    <p id="tim1"></p>
+    <p id="tim2"></p>
+    <script>/*
+        var myTime = setInterval(getTime, 1000);
+        function getTime(){
+            var d = new Date();
+            var t = d.toLocaleTimeString();
+            document.getElementById("tim1").innerHTML = t;
+        }
+        function stopTime(){
+            clearInterval(myTime);
+        }
+//可见 setInterval()方法是周期性定时器，相当于 注册定时器，绑定方法，设定周期；同时开启定时器。
+//而    setTimeout()方法是一次性定时器，相当于 注册定时器，绑定方法，设定延时时间；同时开启定时器。
+        var count = 0;
+        var timer;
+        function myWin(){
+            count++;
+            document.getElementById("tim2").innerHTML = count;
+            timer = setTimeout(function(){myWin();},1000);
+        }
+        function stopTimer(){
+            clearTimeout(timer);
+        }
+		*/
+		var myTime = setInterval(getTime, 1000);
+		function getTime(){
+			var d = new Date();
+			var t = d.toLocaleTimeString();
+			document.getElementById("tim1").innerHTML = t;
+		}
+		function stopTime(){
+			clearInterval(myTime);
+		}
+		
+		var count = 0;
+		var timer = 0;
+		function myWin(){
+			count++;
+			document.getElementById("tim2").innerHTML = count;
+			timer = setTimeout(function(){
+				myWin();
+			}, 1000);
+		}
+		function stopTimer(){
+			clearTimeout(timer);	
+		}
+		
+    </script>
+</body>
+</html>

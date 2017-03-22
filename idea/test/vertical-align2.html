@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vertical-align</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        #container {
+            width:500px;
+            height:500px;
+            background-color:yellow;
+            text-align:center;
+        }
+        .empty-span {
+            display:inline-block;
+            /*width:1px;*/
+            height:100%;
+            /*margin-left:-10px;*/
+            vertical-align:middle;
+        }
+        #container img{
+            width:200px;
+            height:360px;
+            vertical-align:middle;
+        }
+        .measure{
+            width:150px;
+            height:70px;
+            margin-top:-70px;
+            margin-left:350px;
+            background-color:pink;
+        }
+        .div1{
+            width:500px;
+            background-color:yellowgreen;
+        }
+        .div2{
+            width:500px;
+            background-color:gold;
+            text-align:center;
+        }
+        .h_mid{
+            margin:0 auto;
+        }
+        .div3{
+            width:500px;
+            height:50px;
+            background-color:yellowgreen;
+        }
+        .div4{
+            width:500px;
+            height:50px;
+            background-color:gold;
+            vertical-align:middle;
+        }
+        .v_mid{
+            margin:auto;
+        }
+        .tab{
+            border:1px dashed red;
+        }
+        .cell{
+            width: 120px;
+            height:30px;
+            background-color:greenyellow;
+            color:white;
+        }
+        .cell1{
+            vertical-align:top;
+        }
+        .cell2{
+            vertical-align:middle;
+        }
+        .cell3{
+            vertical-align:baseline;
+        }
+        .cell4{
+            vertical-align:bottom;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <span class="empty-span"></span><img src="img/高圆圆1.jpg">
+    </div>
+    <div class="measure"></div>
+    <br /> <br />
+    <div class="div1">
+        <!--<span class="h_mid">测试文字水平居中</span>-->
+        <!--<h5 class="h_mid">测试文字水平居中</h5>-->
+        <!--<input class="h_mid" type="text" placeholder="请输入文字">-->
+        <li class="h_mid">测试文字水平居中</li>
+    </div>
+    <div class="div2">
+        <!--<span>测试文字水平居中</span>-->
+        <!--<h5>测试文字水平居中</h5>-->
+        <!--<input type="text" placeholder="请输入文字">-->
+        <li>测试文字水平居中</li>
+    </div>
+    <div class="div3">
+        <span class="v_mid">测试文字垂直居中</span>
+        <!--<h5 class="v_mid">测试文字垂直居中</h5>-->
+        <!--<input class="v_mid" type="text" placeholder="请输入文字">-->
+        <!--<li class="v_mid">测试文字垂直居中</li>-->
+    </div>
+    <div class="div4">
+        <span>测试文字垂直居中</span>
+        <!--<h5>测试文字垂直居中</h5>-->
+        <!--<input type="text" placeholder="请输入文字">-->
+        <!--<li>测试文字垂直居中</li>-->
+    </div>
+    <br /> <br />
+    <div>
+        <table class="tab">
+            <thead>
+            <tr>
+                <th class="cell">表头文字1</th>
+                <th class="cell">表头文字2</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="cell">列举文字11</td>
+                <td class="cell cell1">列举文字12</td>
+            </tr>
+            <tr>
+                <td class="cell">列举文字21</td>
+                <td class="cell cell2">列举文字22</td>
+            </tr>
+            <tr>
+                <td class="cell">列举文字31</td>
+                <td class="cell cell3">列举文字32</td>
+            </tr>
+            <tr>
+                <td class="cell">列举文字41</td>
+                <td class="cell cell4">列举文字42</td>
+            </tr>
+            </tbody>
+        </table>
+        <br /> <br />
+    </div>
+</body>
+</html>

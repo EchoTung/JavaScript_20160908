@@ -1,0 +1,56 @@
+ul{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+#tab1 li{
+    float:left;
+    color:#ffffff;
+    background-color:#868686;
+    border-bottom:1px solid #ffffff; /*为了显现菜单选中与未选中时，与底下内容框的关系*/
+    padding:5px;
+    margin-right:1px;
+}
+#tab1 .tabin{
+    background-color:#6e6e6e;
+    border-bottom-color:#6e6e6e; /*菜单选中时，与底下内容框无缝连接*/
+}
+.content1{
+    clear:both;
+    width:300px;
+    height:100px;
+    color:#ffffff;
+    background-color:#6e6e6e;
+    padding:10px;
+    display:none;
+}
+.selected{
+    display:block;
+}
+
+#tab2 li{
+    float:left;
+    color:blue;
+    background-color:#ffffff;
+    border:1px solid #ffffff;
+    border-bottom:0; /* 0为了让标签底边与内容顶边无缝连接 */
+    padding:10px;
+    margin-right:2px;
+    cursor:pointer;
+}
+#tab2 .tabin{
+    background-color:#f2f6f8;
+    border-color:#000000;
+    position:relative; /* z-index 在 relative 或 absolute 时才生效 */
+    z-index:100; /* 为了与上移的内容框交叠时置于上层，以遮住边线，而未选中的标签不会遮挡内容框 */
+}
+.content2{
+    clear:both;
+    width:500px;
+    height:200px;
+    padding:10px;
+    background-color:#f2f6f8;
+    border:1px solid #000000;
+    position:relative; /* 为了 top 设置生效 */
+    top:-1px;  /* 上移为了让上面的标签遮住内容框的边线，以实现无缝连接 */
+}

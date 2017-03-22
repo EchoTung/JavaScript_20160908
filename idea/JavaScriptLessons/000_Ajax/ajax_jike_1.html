@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax</title>
+</head>
+<body>
+
+    <script>
+        function createXHR() {
+            var xhr = null;
+            if(window.XMLHttpRequest) {
+                xhr = new XMLHttpRequest(); //IE7以上
+            } else if(window.ActiveXObject) {
+                try{
+                    xhr = new ActiveXObject("Msxml2.XMLHTTP");  //IE6
+                } catch (e) {
+                    try {
+                        xhr = new ActiveXObject("Microsoft.XMLHTTP"); //IE5及更早
+                    } catch (e) {}
+                }
+            }
+            return xhr;
+        }
+    </script>
+</body>
+</html>

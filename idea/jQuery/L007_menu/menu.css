@@ -1,0 +1,52 @@
+ul{
+    /*去掉子项缩进*/
+    margin:0;
+    padding:0;
+    /*去掉列表符号*/
+    list-style:none;
+}
+
+/*一级菜单*/
+.vmain, .hmain{
+    background-image:url("images/title.png");
+    background-repeat:repeat-x;
+    width:80px;
+    text-align:center;
+}
+
+/*所有表项*/
+li{
+    background-color:#eeeeee;
+}
+
+/*所有菜单文字*/
+a{
+    text-decoration:none;
+    display:block;
+    width:60px;
+    padding :3px 10px;
+}
+
+/*一级菜单文字*/
+.vmain>a, .hmain>a{
+    color:white;
+    background-image:url("images/collapse.png");
+    background-repeat:no-repeat;
+    background-position:2px center;
+}
+
+/*二级菜单文字*/
+.vmain li a, .hmain li a{
+    color:black;
+}
+
+.vmain ul, .hmain ul{
+    display:none;
+}
+.vmain{
+	margin-bottom:1px;
+}
+.hmain{
+    float:left;
+    margin-right:1px;
+}

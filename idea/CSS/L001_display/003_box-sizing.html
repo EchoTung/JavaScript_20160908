@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>box-sizing</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+
+        #box{
+            margin:50px 50px;
+            width:100px;
+            height:100px;
+            background-color: #e0a0b0;
+            box-shadow:0 0 20px #cccccc;
+        }
+
+        #div1{
+            width:100px;
+            height:100px;
+            padding:10px;
+            background-color: #00ffff;
+            border:2px dashed #ff0000;
+            box-sizing:border-box;
+        }
+
+
+        #div2{
+            width:100px;
+            height:100px;
+            padding:10px;
+            background-color: #e0a0b0;
+            border:2px dashed #ff0000;
+            box-sizing:content-box;
+        }
+
+        #div3{
+            width:100px;
+            height:100px;
+            background-color: #ff0000;
+        }
+
+        #div4{
+            width:124px;
+            height:124px;
+            background-color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <div id="div1"></div>
+    <div id="div3"></div>
+    <div id="div2"></div>
+    <div id="div4"></div>
+</body>
+</html>

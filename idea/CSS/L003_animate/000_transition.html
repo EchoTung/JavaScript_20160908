@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>transition</title>
+    <style>
+        div{
+            width:100px;
+            color:#333333;
+            background-color: #e0a0b0;
+            /*transition-property:background-color;
+            transition-duration:1s;
+            transition-timing-function:linear;*/
+            transition:background-color 1s linear, color 1s linear, width 2s linear, transform 2s;
+        }
+        div:hover{
+            width:200px;
+            color:snow;
+            background-color: chartreuse;
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+    <div>示例文字</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>background</title>
+    <style>
+        /*
+        background-clip : 定位背景区域（背景颜色填充）
+        background-origin: 定位背景图像的起始位置
+        */
+        div{
+            background-image:url("背景图标.png");
+            background-size:50px 50px;
+            background-repeat:no-repeat;
+            background-color:black;
+            border:15px dashed green;
+            color:white;
+            padding:30px;
+            font-size:30px;
+            font-weight:bold;
+            background-position:left;
+        }
+        .div1{
+            margin-top:40px;
+            background-clip:border-box;
+            background-origin:border-box;
+        }
+        .div2{
+            margin-top:40px;
+            background-clip:padding-box;
+            background-origin:padding-box;
+        }
+        .div3{
+            margin-top:40px;
+            background-clip:content-box;
+            background-origin:content-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">示例1</div>
+    <div class="div2">示例2</div>
+    <div class="div3">示例3</div>
+</body>
+</html>

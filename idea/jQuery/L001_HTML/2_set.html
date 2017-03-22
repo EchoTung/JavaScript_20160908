@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>set elements of the html</title>
+    <script src="jquery-3.1.0.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#btn1").click(function() {
+                $("#test1").text("hello");
+
+                /*$("#test1").text(function(i, oldOne) {
+                    return oldOne + "has changed.";
+                });*/
+            });
+
+            $("#btn2").click(function() {
+                $('#test2').html('Hello <strong>World</strong>');
+
+                /*$("#test2").html(function(i, oldOne) {
+                    return "old:" + oldOne + "; new: <b>hello</b>";
+                });*/
+            });
+
+            $("#btn3").click(function() {
+                $('#test3').val('请输入内容：');
+            });
+
+            $("#btn4").click(function() {
+			//   $("#link").attr("href", "https://www.douban.com");
+                var obj = $("#link");
+                obj.attr({
+                    "href":"https://www.douban.com",
+                    "title":"我们的精神角落"
+                });
+                obj.text("豆瓣");
+            });
+        });
+    </script>
+</head>
+<body>
+    <p id="test1">这是段落。</p>
+    <p id="test2">这是文本。</p>
+    <p><input id="test3" type="text" value="test text" /></p>
+    <p><a id="link" href="https://www.baidu.com">百度</a></p>
+    <button id="btn1">设置文本</button>
+    <button id="btn2">设置HTML</button>
+    <button id="btn3">设置值</button>
+    <button id="btn4">设置属性</button>
+</body>
+</html>

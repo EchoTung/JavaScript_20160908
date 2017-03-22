@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>margin left and right</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        .div1{
+            width:250px;
+            height:100px;
+            background-color:greenyellow;
+        }
+        .div2{
+            width:260px;
+            height:100px;
+            background-color:greenyellow;
+        }
+        .s1{
+            background-color:red;
+            color:white;
+            margin-left:0;
+            margin-right:-30px;
+            padding:1px;
+        }
+        .s2{
+            background-color:lightcoral;
+            color:white;
+            margin-left:-20px;
+            padding:1px;
+        }
+        .s3{
+            background-color:lightblue;
+            color:white;
+            margin:0px;
+            padding:1px;
+        }
+        .outer{
+            height:300px;
+            background-color:pink;
+            border:1px dashed white;
+        }
+        .box1{
+            width:100px;
+            height:100px;
+            background-color:red;
+            /*margin-right:10px;*/
+            /*float:left;*/
+            display:inline-block;
+        }
+        .box2{
+            width:100px;
+            height:100px;
+            background-color:yellow;
+            /*margin-left:20px;
+            margin-right:-10px;*/
+            /*float:left;*/
+            display:inline-block;
+        }
+        .box3{
+            width:100px;
+            height:100px;
+            background-color:green;
+            /*margin:-20px;*/
+            /*float:left;*/
+            display:inline-block;
+        }
+        .clr{
+            /*clear:both;*/
+            white-space:nowrap;
+            background-color:#9d9d9d;
+        }
+        .nl{
+            white-space:normal;
+        }
+        .nw{
+            white-space:nowrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1"></div>
+    <span class="s1">测试相邻元素 margin 的水平作用1</span><span class="s2">测试相邻元素 margin 的水平作用2</span><span class="s3">测试相邻元素 margin 的水平作用3</span>
+    <div class="div2"></div>
+    <div class="outer">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+        <div class="clr">
+            <div class="nl"> div. normal: 111111111111111
+                1111111111111111</div>
+            <div class="nw"> div. nowrap: 111111111111111
+                1111111111111111</div>
+            <div> div........: 1111111111111111111111111111111</div>
+            <br />
+            <span>span no-set: 111111111111111
+                1111111111111111</span> <br />
+            <span class="nw">span nowrap: 111111111111111
+                1111111111111111</span><br />
+            <span>span ......: 1111111111111111111111111111111</span>
+        </div>
+    </div>
+</body>
+</html>

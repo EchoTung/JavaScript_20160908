@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>get the element of HTML</title>
+    <script src="jquery-3.1.0.js"></script>
+    <script>
+        $(document).ready(function(){
+			$('#btn1').click(function(){
+				alert("text: " + $('#test').text());
+			});
+			$('#btn2').click(function(){
+				alert("html: " + $('#test').html());
+			});
+			$('#btn3').click(function(){
+				alert("value: " + $('#form').val());
+			});
+			$('#btn4').click(function(){
+				alert("attr: " + $('#link').attr('href'));
+			});
+		});
+    </script>
+</head>
+<body>
+    <p id="test">这是段落中的<b>粗体</b>文本</p>
+    <button id="btn1">显示文本</button>
+    <button id="btn2">显示HMTL</button>
+    <p>姓名：<input type="text" id="form" value="test value" /> </p>
+    <button id="btn3">显示值</button>
+    <p><a id="link" href="https://www.baidu.com">百度</a></p>
+    <button id="btn4">显示属性</button>
+</body>
+</html>

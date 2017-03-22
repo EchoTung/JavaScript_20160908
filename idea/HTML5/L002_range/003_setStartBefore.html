@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>setStartBefore</title>
+</head>
+<body>
+    <script>
+        function deleteRow() {
+            var table = document.getElementById("myTable");
+            if(table.rows.length > 0) {
+                var row1 = table.rows[0];
+                var row2 = table.rows[2]
+                var rangeObj = document.createRange();
+            //    rangeObj.setStartBefore(row1);
+            //    rangeObj.setEndBefore(row2);
+                rangeObj.setStartAfter(row1);
+                rangeObj.setEndAfter(row2);
+                rangeObj.deleteContents();
+            }
+        }
+    </script>
+    <table id="myTable" border="1" cellspaceing="0" cellpadding="0">
+        <tr>
+            <td>内容1</td>
+            <td>内容2</td>
+        </tr>
+        <tr>
+            <td>内容3</td>
+            <td>内容4</td>
+        </tr>
+        <tr>
+            <td>内容5</td>
+            <td>内容6</td>
+        </tr>
+        <tr>
+            <td>内容7</td>
+            <td>内容8</td>
+        </tr>
+    </table>
+    <button onclick="deleteRow()">删除行</button>
+</body>
+</html>

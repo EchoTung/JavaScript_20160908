@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>盒子模型深入</title>
+<style>
+*{
+	margin:0;
+	padding:0;
+}
+.box1{
+	margin:10px;
+	padding:15px;
+	width:200px;
+	height:200px;
+	background:lightblue;
+	background-clip:content-box;
+	border:10px dashed #6633FF;
+}
+.div1{
+	box-sizing:content-box;
+	margin:20px;
+	width:100px;
+	height:100px;
+	background:pink;
+}
+.div2{
+	margin-top:-20px;
+	margin-left:60%;
+/*	margin-right:30px; 取不到等效结果，因为此属性影响下一相邻元素，而不是自身*/
+	width:50px;
+	height:50px;
+	background:#9F0;
+}
+
+.box2{
+	width:200px;
+	height:50px;
+	background:lightblue;
+}
+.spn{
+	width:80px;    /*宽度设置无效*/
+	height:80px;   /*高度设置无效*/
+	background:pink;
+	margin:15px;    /*外边距上下无效*/
+	padding:10px;   /*内边距上下左右均有效？*/
+}
+</style>
+</head>
+
+<body>
+<div class="box1">
+	<div class="div1"></div>
+	<div class="div2"></div>
+</div>
+<br />
+<br />
+<div class="box2">
+	<span class="spn">测试行内元素</span>
+</div>
+</body>
+</html>
